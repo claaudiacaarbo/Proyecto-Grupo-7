@@ -35,16 +35,3 @@ entregable_2/
 ```
 
 Las próximas entregas se añadirán en sus propias carpetas cuando haya archivos que incorporar.
-
-## Ejecutar Wikivoyage
-
-Desde la carpeta del repositorio, con Python instalado:
-
-```powershell
-python -m pip install requests beautifulsoup4
-python entregable_2/codigos/wikivoyage.py
-```
-
-El script consulta Roma por defecto y necesita conexión a Internet. Guarda las nuevas extracciones en una subcarpeta `resultados_wikivoyage`, que no se sube a Git. El CSV adjunto se conserva como ejemplo y no se sobrescribe.
-
-Los demás scripts también son ejemplos y contienen fechas y parámetros que deben revisarse antes de ejecutarlos. La prueba de Booking lee su clave desde la variable de entorno `RAPIDAPI_KEY`; no se incluye ninguna clave en el repositorio.
