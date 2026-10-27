@@ -10,8 +10,7 @@ La [propuesta inicial del proyecto](entregable_1/propuesta_proyecto_grupo7.docx)
 
 **En preparación.** Esta carpeta reúne el código y los datos disponibles para estudiar la viabilidad de las fuentes. La segunda entrega todavía no está terminada.
 
-- [Wikivoyage](entregable_2/wikivoyage/): únicamente el archivo Python y el CSV existente, con 102 registros de Roma.
-- [Otras fuentes](entregable_2/otras_fuentes/): pruebas de Open-Meteo, mapas y rutas, KAYAK, Google Flights, Google Hotels, DiscoverCars y Booking a través de un proveedor de RapidAPI.
+En [codigos](entregable_2/codigos/) están juntos los ocho archivos Python y el CSV, sin subcarpetas: Wikivoyage, Open-Meteo, mapas y rutas, KAYAK, Google Flights, Google Hotels, DiscoverCars y Booking a través de un proveedor de RapidAPI. El CSV de Wikivoyage contiene 102 registros de Roma.
 
 Los scripts son pruebas independientes. La aplicación web todavía está pendiente y no se da por hecho que todas las fuentes funcionen o estén integradas. En esta revisión se hicieron comprobaciones locales, sin consultar los servicios externos.
 
@@ -21,11 +20,16 @@ Los scripts son pruebas independientes. La aplicación web todavía está pendie
 entregable_1/
     propuesta_proyecto_grupo7.docx
 entregable_2/
-    wikivoyage/
+    codigos/
+        booking_api_prueba.py
+        discovercars_prueba.py
+        google_flight_prueba.py
+        google_hotels_prueba.py
+        kayak_prueba.py
+        open_meteo_prueba.py
+        prueba_mapa_rutas.py
         wikivoyage.py
         datos_wikivoyage.csv
-    otras_fuentes/
-        scripts de prueba de las demás fuentes
 ```
 
 Las próximas entregas se añadirán en sus propias carpetas cuando haya archivos que incorporar.
@@ -36,7 +40,7 @@ Desde la carpeta del repositorio, con Python instalado:
 
 ```powershell
 python -m pip install requests beautifulsoup4
-python entregable_2/wikivoyage/wikivoyage.py
+python entregable_2/codigos/wikivoyage.py
 ```
 
 El script consulta Roma por defecto y necesita conexión a Internet. Guarda las nuevas extracciones en una subcarpeta `resultados_wikivoyage`, que no se sube a Git. El CSV adjunto se conserva como ejemplo y no se sobrescribe.
