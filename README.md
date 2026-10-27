@@ -10,6 +10,8 @@ La [propuesta inicial del proyecto](entregable_1/propuesta_proyecto_grupo7.docx)
 
 **En preparación.** Esta carpeta reúne el código y los datos disponibles para estudiar la viabilidad de las fuentes. La segunda entrega todavía no está terminada.
 
+El documento de la segunda entrega se añadirá directamente en `entregable_2`, junto a la carpeta `codigos`, cuando esté terminado.
+
 En [codigos](entregable_2/codigos/) están juntos los ocho archivos Python y el CSV, sin subcarpetas: Wikivoyage, Open-Meteo, mapas y rutas, KAYAK, Google Flights, Google Hotels, DiscoverCars y Booking a través de un proveedor de RapidAPI. El CSV de Wikivoyage contiene 102 registros de Roma.
 
 Los scripts son pruebas independientes. La aplicación web todavía está pendiente y no se da por hecho que todas las fuentes funcionen o estén integradas. En esta revisión se hicieron comprobaciones locales, sin consultar los servicios externos.
