@@ -8,13 +8,11 @@ La [propuesta inicial del proyecto](entregable_1/propuesta_proyecto_grupo7.docx)
 
 ## Entregable 2
 
-**En preparación.** Esta carpeta reúne el código y los datos disponibles para estudiar la viabilidad de las fuentes. La segunda entrega todavía no está terminada.
-
-El documento de la segunda entrega se añadirá directamente en `entregable_2`, junto a la carpeta `codigos`, cuando esté terminado.
+El [documento de la segunda entrega](entregable_2/entregable_2_grupo7.pdf) recoge las pruebas de acceso y extracción de datos realizadas por el grupo, los resultados, las limitaciones encontradas y la selección de fuentes para continuar el desarrollo. El PDF se conserva sin modificar su contenido y está directamente en `entregable_2`, junto a la carpeta `codigos`.
 
 En [codigos](entregable_2/codigos/) están juntos los ocho archivos Python y el CSV, sin subcarpetas: Wikivoyage, Open-Meteo, mapas y rutas, KAYAK, Google Flights, Google Hotels, DiscoverCars y Booking a través de un proveedor de RapidAPI. El CSV de Wikivoyage contiene 102 registros de Roma.
 
-Los scripts son pruebas independientes. La aplicación web todavía está pendiente y no se da por hecho que todas las fuentes funcionen o estén integradas. En esta revisión se hicieron comprobaciones locales, sin consultar los servicios externos.
+Los scripts son pruebas independientes. La segunda entrega documenta los resultados obtenidos por el grupo; la integración de las fuentes y el desarrollo de la aplicación web siguen pendientes.
 
 ## Organización
 
@@ -22,6 +20,7 @@ Los scripts son pruebas independientes. La aplicación web todavía está pendie
 entregable_1/
     propuesta_proyecto_grupo7.docx
 entregable_2/
+    entregable_2_grupo7.pdf
     codigos/
         booking_api_prueba.py
         discovercars_prueba.py
