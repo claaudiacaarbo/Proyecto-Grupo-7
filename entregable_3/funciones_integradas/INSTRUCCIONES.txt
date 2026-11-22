@@ -1,0 +1,33 @@
+PLANIFICADOR DE VIAJES · GRUPO 7
+
+En Windows, haz doble clic en «Iniciar planificador».
+En macOS o Linux, abre una terminal en esta carpeta y ejecuta
+
+    python3 -X utf8 programa/iniciar.py
+
+La primera vez, el programa instala las librerías automáticamente, incluido
+Folium, que se utiliza para generar el mapa interactivo.
+Deja la ventana abierta y espera a que aparezcan las preguntas del viaje.
+
+Responde y pulsa Intro después de cada pregunta. Usa DD/MM/AAAA para
+las fechas. El presupuesto es para todo el grupo. Edge se abrirá para
+buscar precios y el resumen aparecerá en la terminal.
+
+El formulario permite concretar la búsqueda con filtros opcionales:
+- Vuelos: hora mínima y máxima de salida para ida y vuelta, y cabina.
+- Alojamiento: habitaciones, desayuno incluido y parking gratuito.
+- Coche: número mínimo de asientos y transmisión. Si se deja el número
+  de asientos vacío, se usa como mínimo el número de viajeros.
+Las horas y la transmisión pueden dejarse en blanco; para desayuno y
+parking, escribe «s» para exigirlos o pulsa Intro para no aplicar el filtro.
+
+Al terminar la sección de rutas, se mostrará la ubicación de «mapa_ruta.html».
+Abre ese archivo con un navegador. Para ver el mapa base se necesita conexión
+a Internet.
+
+Necesitas Python 3.10 o posterior, internet y Microsoft Edge.
+Python: https://www.python.org/downloads/
+Edge: https://www.microsoft.com/edge/download
+
+Mantén la carpeta «programa» junto al archivo de inicio. Si el Explorador
+muestra «Extraer todo», pulsa ese botón y abre la carpeta extraída.

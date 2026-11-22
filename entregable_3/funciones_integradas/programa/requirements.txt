@@ -1,0 +1,4 @@
+requests==2.34.2
+beautifulsoup4==4.15.0
+selenium==4.50.0
+folium==1.0.0
