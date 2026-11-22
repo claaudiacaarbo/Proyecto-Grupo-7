@@ -230,46 +230,55 @@ def buscar_vuelo(
     cabina: str | None = None,
 ) -> dict[str, Any] | None:
     """Devuelve un vuelo de ida, uno de vuelta y sus precios limpios."""
-    navegador = None
-    try:
-        navegador = abrir_edge()
-        resultado_viaje = buscar_ida_vuelta(
-            navegador,
-            ciudad_origen,
-            ciudad_destino,
-            fecha_ida,
-            fecha_vuelta,
-            cabina,
-            hora_salida_ida_min,
-            hora_salida_ida_max,
-            hora_salida_vuelta_min,
-            hora_salida_vuelta_max,
-        )
-        if resultado_viaje is None:
+    from selenium.common.exceptions import TimeoutException
+
+    for intento in range(2):
+        navegador = None
+        try:
+            navegador = abrir_edge()
+            resultado_viaje = buscar_ida_vuelta(
+                navegador,
+                ciudad_origen,
+                ciudad_destino,
+                fecha_ida,
+                fecha_vuelta,
+                cabina,
+                hora_salida_ida_min,
+                hora_salida_ida_max,
+                hora_salida_vuelta_min,
+                hora_salida_vuelta_max,
+            )
+            if resultado_viaje is None:
+                print("No existe resultado correspondiente")
+                return None
+
+            ida, vuelta, precio_persona = resultado_viaje
+
+            precio_total = precio_persona * int(num_viajeros)
+            ida.pop("duracion_minutos")
+            vuelta.pop("duracion_minutos")
+            return {
+                "ida": ida,
+                "vuelta": vuelta,
+                "precio_persona": formatear_euros(precio_persona),
+                "precio_total": formatear_euros(precio_total),
+            }
+        except TimeoutException:
+            if intento == 0:
+                print("Google Vuelos agotó el tiempo de espera. Reintentando…")
+                continue
+            print("Google Vuelos agotó el tiempo de espera tras dos intentos.")
+            return None
+        except Exception as error:
+            print(f"Error interno al buscar vuelos: {type(error).__name__}: {error}")
             print("No existe resultado correspondiente")
             return None
-
-        ida, vuelta, precio_persona = resultado_viaje
-
-        precio_total = precio_persona * int(num_viajeros)
-        ida.pop("duracion_minutos")
-        vuelta.pop("duracion_minutos")
-        return {
-            "ida": ida,
-            "vuelta": vuelta,
-            "precio_persona": formatear_euros(precio_persona),
-            "precio_total": formatear_euros(precio_total),
-        }
-    except Exception as error:
-        print(f"Error interno al buscar vuelos: {type(error).__name__}: {error}")
-        print("No existe resultado correspondiente")
-        return None
-    finally:
-        if navegador is not None:
-            try:
-                navegador.quit()
-            except Exception:
-                pass
+        finally:
+            if navegador is not None:
+                try:
+                    navegador.quit()
+                except Exception:
+                    pass
 
 
 def convertir_hora_a_minutos(valor: str) -> int:
