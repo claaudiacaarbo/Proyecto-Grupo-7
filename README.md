@@ -1,6 +1,6 @@
 # Proyecto Grupo 7
 
-Proyecto de Adquisición y Tratamiento de Datos del Grado en Ciencia de Datos. Queremos desarrollar una página web que ayude a planificar viajes reuniendo transporte, alojamiento, meteorología, gastronomía, puntos de interés, mapas y una estimación de costes.
+Proyecto de Adquisición y Transmisión de Datos del Grado en Ciencia de Datos. Queremos desarrollar una página web que ayude a planificar viajes reuniendo transporte, alojamiento, meteorología, gastronomía, puntos de interés, mapas y una estimación de costes.
 
 ## Entregable 1
 
