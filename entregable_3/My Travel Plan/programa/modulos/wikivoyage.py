@@ -112,6 +112,7 @@ SEPARADORES_TARIFA = re.compile(
 NEGACION_GRATUIDAD = re.compile(r"\b(?:no|not)(?:\s+(?:es|son|será|is|are))?\s+$", re.IGNORECASE)
 
 
+# INICIO DEL BLOQUE CON APOYO DE IA (OpenAI Codex, GPT-6, apartado 4.3)
 def convertir_importe(numero):
     # Quitamos los espacios para poder tratar igual «1 234,50» y «1234,50».
     numero = "".join(numero.split())
@@ -131,6 +132,7 @@ def identificar_moneda(marcas):
         if MONEDAS[marca] is not None:
             return MONEDAS[marca]
     return None
+# FIN DEL BLOQUE CON APOYO DE IA
 
 
 def extraer_tarifas(precio):
