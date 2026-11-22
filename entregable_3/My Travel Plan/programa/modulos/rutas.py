@@ -85,7 +85,7 @@ def limpiar_direccion(direccion, ciudad):
 
 # 3. OBTENER LOS LUGARES DEL MÓDULO DE WIKIVOYAGE
 
-def leer_lugares_wikivoyage(ciudad_destino, tipos=("Punto de interés",)):
+def leer_lugares_wikivoyage(ciudad_destino, pais_destino, tipos=("Punto de interés",)):
     """
     Devuelve una lista de diccionarios {'nombre', 'direccion', 'tipo'}.
     Primero intenta llamar a la función del módulo wikivoyage.py.
@@ -94,20 +94,23 @@ def leer_lugares_wikivoyage(ciudad_destino, tipos=("Punto de interés",)):
     registros = []
     try:
         import wikivoyage
-        registros = wikivoyage.consultar_ciudad(ciudad_destino)
-        print("Lugares obtenidos del módulo de Wikivoyage.")
+        registros = wikivoyage.obtener_wikivoyage(ciudad_destino, pais_destino)
+        if registros:
+            print("Lugares obtenidos del módulo de Wikivoyage.")
     except Exception as error:
         print("No se pudo usar el módulo de Wikivoyage (" + str(error) + ").")
-        if CSV_WIKIVOYAGE.exists():
-            with CSV_WIKIVOYAGE.open(encoding="utf-8-sig", newline="") as fichero:
-                registros = list(csv.DictReader(fichero, delimiter=";"))
-            print("Lugares leídos del CSV:", CSV_WIKIVOYAGE.name)
+
+    if not registros and CSV_WIKIVOYAGE.exists():
+        ciudad = quitar_tildes(ciudad_destino)
+        with CSV_WIKIVOYAGE.open(encoding="utf-8-sig", newline="") as fichero:
+            registros = [
+                fila for fila in csv.DictReader(fichero, delimiter=";")
+                if quitar_tildes(fila["ciudad"]) == ciudad
+            ]
+        print("Lugares leídos del CSV:", CSV_WIKIVOYAGE.name)
 
     lugares = []
     for fila in registros:
-        # Comparamos sin tildes ni mayúsculas para que 'Roma' y 'roma' valgan igual
-        if quitar_tildes(fila["ciudad"]) != quitar_tildes(ciudad_destino):
-            continue
         if fila["tipo"] not in tipos:
             continue
         lugares.append({"nombre": fila["nombre"].strip(),
@@ -277,7 +280,7 @@ def obtener_mapa_y_rutas(ciudad_destino, pais_destino, modo="a pie", max_lugares
     if centro is None:
         raise ValueError("No se ha encontrado la ciudad " + ciudad_destino)
 
-    lugares = leer_lugares_wikivoyage(ciudad_destino)
+    lugares = leer_lugares_wikivoyage(ciudad_destino, pais_destino)
     if not lugares:
         raise ValueError("No hay puntos de interés para " + ciudad_destino)
     lugares = lugares[:max_lugares]
