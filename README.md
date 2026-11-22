@@ -12,7 +12,20 @@ El [documento de la segunda entrega](entregable_2/entregable_2_grupo7.pdf) recog
 
 En [codigos](entregable_2/codigos/) están juntos los ocho archivos Python y el CSV, sin subcarpetas: Wikivoyage, Open-Meteo, mapas y rutas, KAYAK, Google Flights, Google Hotels, DiscoverCars y Booking a través de un proveedor de RapidAPI. El CSV de Wikivoyage contiene 102 registros de Roma.
 
-Los scripts son pruebas independientes. La segunda entrega documenta los resultados obtenidos por el grupo; la integración de las fuentes y el desarrollo de la aplicación web siguen pendientes.
+Los scripts de esta entrega se ejecutan de forma independiente y sirvieron para seleccionar las fuentes del planificador integrado.
+
+## Entregable 3
+
+El [informe de la tercera entrega](entregable_3/Entregable3_Grupo7.pdf) documenta el diseño de las funciones y muestra un ejemplo de ejecución del [planificador integrado](entregable_3/funciones_integradas/). El programa se ejecuta en la terminal y reúne vuelos, alojamiento, alquiler de coches, meteorología y recomendaciones de visitas y gastronomía. También muestra una estimación de los costes disponibles y guarda la ruta a pie en un mapa interactivo (`mapa_ruta.html`). La aplicación web sigue siendo el objetivo del proyecto.
+
+### Cómo ejecutar el planificador
+
+Se necesita Python 3.11 o superior, Microsoft Edge y conexión a internet. Abre la carpeta `entregable_3/funciones_integradas` en tu copia del repositorio.
+
+- **Windows.** Haz doble clic en `iniciar_planificador.bat`.
+- **macOS y Linux.** Abre una terminal en esa carpeta y ejecuta `python3 -X utf8 programa/iniciar.py`.
+
+El lanzador instala las dependencias la primera vez. Sigue las preguntas de la terminal y, cuando aparezca la ubicación de `mapa_ruta.html`, abre ese archivo con el navegador. Los filtros y los formatos de entrada se explican en las [instrucciones de uso](entregable_3/funciones_integradas/INSTRUCCIONES.txt).
 
 ## Organización
 
@@ -21,6 +34,7 @@ entregable_1/
     propuesta_proyecto_grupo7.docx
 entregable_2/
     entregable_2_grupo7.pdf
+    README.md
     codigos/
         booking_api_prueba.py
         discovercars_prueba.py
@@ -31,6 +45,20 @@ entregable_2/
         prueba_mapa_rutas.py
         wikivoyage.py
         datos_wikivoyage.csv
+entregable_3/
+    Entregable3_Grupo7.pdf
+    funciones_integradas/
+        iniciar_planificador.bat
+        INSTRUCCIONES.txt
+        programa/
+            iniciar.py
+            planificador.py
+            requirements.txt
+            modulos/
+                reservas.py
+                tiempo.py
+                rutas.py
+                wikivoyage.py
 ```
 
 Las próximas entregas se añadirán en sus propias carpetas cuando haya archivos que incorporar.
