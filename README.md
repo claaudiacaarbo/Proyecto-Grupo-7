@@ -1,4 +1,4 @@
-# Proyecto Grupo 7
+# My Travel Plan · Grupo 7
 
 Proyecto de Adquisición y Transmisión de Datos del Grado en Ciencia de Datos. Queremos desarrollar una página web que ayude a planificar viajes reuniendo transporte, alojamiento, meteorología, gastronomía, puntos de interés, mapas y una estimación de costes.
 
@@ -16,16 +16,16 @@ Los scripts de esta entrega se ejecutan de forma independiente y sirvieron para 
 
 ## Entregable 3
 
-El [informe de la tercera entrega](entregable_3/Entregable3_Grupo7.pdf) documenta el diseño de las funciones y muestra un ejemplo de ejecución del [planificador integrado](entregable_3/funciones_integradas/). El programa se ejecuta en la terminal y reúne vuelos, alojamiento, alquiler de coches, meteorología y recomendaciones de visitas y gastronomía. También muestra una estimación de los costes disponibles y guarda la ruta a pie en un mapa interactivo (`mapa_ruta.html`). La aplicación web sigue siendo el objetivo del proyecto.
+El [informe de la tercera entrega](entregable_3/Entregable3_Grupo7.pdf) documenta el diseño de las funciones y muestra un ejemplo de ejecución del [My Travel Plan](entregable_3/My%20Travel%20Plan/). El programa se ejecuta en la terminal y reúne vuelos, alojamiento, alquiler de coches, meteorología y recomendaciones de visitas y gastronomía. También muestra una estimación de los costes disponibles y guarda la ruta a pie en un mapa interactivo (`mapa_ruta.html`). La aplicación web sigue siendo el objetivo del proyecto.
 
 ### Cómo ejecutar el planificador
 
-Se necesita Python 3.11 o superior, Microsoft Edge y conexión a internet. Abre la carpeta `entregable_3/funciones_integradas` en tu copia del repositorio.
+Se necesita Python 3.11 o superior, Microsoft Edge y conexión a internet. Abre la carpeta `entregable_3/My Travel Plan` en tu copia del repositorio.
 
 - **Windows.** Haz doble clic en `iniciar_planificador.bat`.
 - **macOS y Linux.** Abre una terminal en esa carpeta y ejecuta `python3 -X utf8 programa/iniciar.py`.
 
-El lanzador instala las dependencias la primera vez. Sigue las preguntas de la terminal y, cuando aparezca la ubicación de `mapa_ruta.html`, abre ese archivo con el navegador. Los filtros y los formatos de entrada se explican en las [instrucciones de uso](entregable_3/funciones_integradas/INSTRUCCIONES.txt).
+El lanzador instala las dependencias la primera vez. Sigue las preguntas de la terminal y, cuando aparezca la ubicación de `mapa_ruta.html`, abre ese archivo con el navegador. Los filtros y los formatos de entrada se explican en las [instrucciones de uso](entregable_3/My%20Travel%20Plan/INSTRUCCIONES.txt).
 
 ## Organización
 
@@ -47,7 +47,7 @@ entregable_2/
         datos_wikivoyage.csv
 entregable_3/
     Entregable3_Grupo7.pdf
-    funciones_integradas/
+    My Travel Plan/
         iniciar_planificador.bat
         INSTRUCCIONES.txt
         programa/
