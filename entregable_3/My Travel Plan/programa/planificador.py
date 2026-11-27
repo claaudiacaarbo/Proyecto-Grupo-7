@@ -312,16 +312,35 @@ def mostrar_ruta(ciudad, pais, fichas):
         print(f"{numero}. {punto['nombre']}")
     ruta = None
     if len(puntos) >= 2:
+        from requests.exceptions import RequestException
+
         print("Calculando la distancia y el tiempo a pie…", flush=True)
-        ruta = mapas.calcular_ruta(puntos, "a pie")
-        print(f"Ruta a pie: {ruta['km_total']} km | {ruta['minutos_total']} min")
+        try:
+            ruta = mapas.calcular_ruta(puntos, "a pie")
+        except (RequestException, RuntimeError):
+            print("No se pudo calcular el recorrido a pie con OSRM.")
+            km_recta = 0
+            for i in range(len(puntos) - 1):
+                salida = puntos[i]
+                llegada = puntos[i + 1]
+                km_recta += mapas.distancia_km(
+                    (salida["lat"], salida["lon"]),
+                    (llegada["lat"], llegada["lon"]),
+                )
+            print(f"Distancia entre paradas en línea recta: {km_recta:.2f} km")
+            print("Tiempo a pie no disponible.")
+        else:
+            print(f"Ruta a pie: {ruta['km_total']} km | {ruta['minutos_total']} min")
+            for tramo in ruta["tramos"]:
+                print(f"  {tramo['desde']} → {tramo['hasta']}: "
+                      f"{tramo['km']} km | {tramo['minutos']} min")
     else:
         print("Se necesitan al menos dos paradas para calcular la ruta.")
 
-    mapa = mapas.crear_mapa(puntos, ruta)
-    if mapa:
-        print(f"Mapa HTML guardado en: {mapa}")
-        print("Ábrelo con un navegador para ver los puntos y la ruta.")
+    if puntos:
+        mapa = mapas.crear_mapa(puntos, ruta)
+        if mapa:
+            print(f"Mapa interactivo opcional: {mapa}")
 
 
 def mostrar_presupuesto(presupuesto, cotizaciones):
